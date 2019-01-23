@@ -26,11 +26,7 @@ export default new Router({
                     next()
                     return
                 }
-                axios.get('/check-token',{
-                    'headers': {
-                        'Authorization': token
-                    }
-                })
+                axios.get('/check-token')
                 .then(res =>{
                     next('/dashboard')
                 })
@@ -53,11 +49,7 @@ export default new Router({
                     next('/')
                     return
                 }
-                axios.get('/check-token',{
-                    'headers': {
-                        'Authorization': token
-                    }
-                })
+                axios.get('/check-token')
                 .then(res => {
                     next()
                 })

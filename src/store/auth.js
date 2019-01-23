@@ -33,11 +33,7 @@ const actions = {
         if (!token) {
             return
         }
-        axios.get('/check-token',{
-            'headers': {
-                'Authorization': token
-            }
-        })
+        axios.get('/check-token')
         .then(res => state.token = token)
         .catch(error => {
             commit('clearAuthData')

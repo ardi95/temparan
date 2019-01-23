@@ -2,6 +2,7 @@ import Vue from 'vue'
 import './plugins/vuetify'
 import axios from 'axios'
 import Vuelidate from 'vuelidate'
+import VueCookies from 'vue-cookies'
 
 import App from './App.vue'
 import router from './router'
@@ -14,6 +15,7 @@ Vue.config.productionTip = false
 
 // axios.defaults.baseURL = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty'
 axios.defaults.baseURL = 'https://temparanapi.aranproduk.com'
+axios.defaults.headers.get['Authorization'] = $cookies.get("token")
 
 new Vue({
   router,
