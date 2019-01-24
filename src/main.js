@@ -15,7 +15,12 @@ Vue.config.productionTip = false
 
 // axios.defaults.baseURL = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty'
 axios.defaults.baseURL = 'https://temparanapi.aranproduk.com'
-axios.defaults.headers.get['Authorization'] = $cookies.get("token")
+// axios.defaults.headers.get['Authorization'] = $cookies.get("token")
+
+axios.interceptors.request.use(config => {
+    config.headers.common['Authorization'] = $cookies.get("token");
+    return config;
+});
 
 new Vue({
   router,
